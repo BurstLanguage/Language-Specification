@@ -1,6 +1,13 @@
 # Burst
 ## Language Specification
 
+## Contents
+ - [Introduction](#introduction)
+ - [Lifecycle of a Burst program](#lifecycle-of-a-burst-program)
+ - [Tokenization and Lexical Analysis](Lexer.md)
+    - [Tokenization](Lexer.md#tokenization)
+    - [Lexical Analysis](Lexer.md#lexical-analysis)
+
 ### Introduction
 The "Burst" language is a general-purpose interpreted programming language,
 designed with C programmers in mind, meaning its syntax and functionality
