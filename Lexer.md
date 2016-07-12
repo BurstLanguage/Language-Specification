@@ -73,15 +73,15 @@ Please note the inclusion of whitespace tokens in the above example. These token
 
 ### Building combined tokens
 
-A combined-token, consists of one or more single-tokens, and an attribute to describe the combined-token's type.
+A combined-token, consists of one or more single-tokens, and an attribute to describe the combined-token’s type.
 
 Generally speaking, in order for a set of single-tokens to be compiled into one combined-token, each of their single-token-types, needs to match.
 
-To build a combined-token, the lexer will iterate through the previously generated list of single-tokens, and check each single-token's type. If the current single-token has a single-token-type which matches that of the previous single-token, the lexer will combine the previous and current single-tokens, into one combined-token.
+To build a combined-token, the lexer will iterate through the previously generated list of single-tokens, and check each single-token’s type. If the current single-token has a single-token-type which matches that of the previous single-token, the lexer will combine the previous and current single-tokens, into one combined-token.
 
-Combining of single-tokens that have matching types (or a "combining session"), will stop once a whitespace token is encountered.
+Combining of single-tokens that have matching types (or a “combining session”), will stop once a whitespace token is encountered.
 
-Once a "combining session" has stopped, the combined-token that was built, will then be evaluated to determine its combined-token-type.
+Once a “combining session” has stopped, the combined-token that was built, will then be evaluated to determine its combined-token-type.
 
 A list of combined-token-types, as well as their possible values, can be found below:
 
