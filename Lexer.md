@@ -57,7 +57,7 @@ Given our sample program, the first step of the lexer might output something lik
 ### Lexical Analysis
 
 If a character is considered to be valid, it will then be converted to a single-token.
-A single-token is not much more than a character, with a
+A single-token is not much more than a character, with a single-token-type assigned to it.
 If a character is considered to be valid (see “Validation of characters”), it will then be converted to a single-token.
 A single-token, is not much more than a character, with an attribute to describe its single-token-type.
 If a single-token for the ‘a’ character, was to be expressed using the JSON format, it might look somewhat like follows:
