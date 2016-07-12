@@ -1,0 +1,8 @@
+*
+!*/
+
+# Markdown files
+!*.md
+
+# Git-related files
+!.git*
