@@ -17,9 +17,9 @@ In order for a character to be considered valid, it must be mappable to one or m
 
 Note: in the following table, possible values for each single-token-type are expressed in the form of a regular expression pattern.
 
-* Character - /[A-Za-z]/
-* Number - /[\d]+/
-* String - /[\"|\']{1}([\w]+)[\"|\']{1}/
+* Character - `/[A-Za-z]/`
+* Number - `/[\d]+/`
+* String - `/[\"|\']{1}([\w]+)[\"|\']{1}/`
 
 If a character cannot be mapped to at least one of the previously documented single-token-types, it is considered to be an invalid character.
 
@@ -57,15 +57,17 @@ Given our sample program, the first step of the lexer might output something lik
 ### Lexical Analysis
 
 If a character is considered to be valid, it will then be converted to a single-token.
-A single-token is not much more than a character, with a single-token-type assigned to it.
-If a character is considered to be valid (see “Validation of characters”), it will then be converted to a single-token.
+A single-token is not much more than a character, with a
+If a character is considered to be valid (see "Validation of characters"), it will then be converted to a single-token.
 A single-token, is not much more than a character, with an attribute to describe its single-token-type.
-If a single-token for the ‘a’ character, was to be expressed using the JSON format, it might look somewhat like follows:
+If a single-token for the 'a' character, was to be expressed using the JSON format, it might look somewhat like follows:
 
-    {
-        “type”: “Character”,
-        “value”:  ‘a’
-    }
+```json
+{
+    "type": "Character",
+    "value": 'a'
+}
+```
 
 Please note the inclusion of whitespace tokens in the above example. These tokens are important as they are used to help the lexer (in step 2) determine where a potential combined-token starts and ends.
 
