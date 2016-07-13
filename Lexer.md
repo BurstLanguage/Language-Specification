@@ -4,7 +4,7 @@
 ### Tokenization
 
 Tokenization is the first step of a Burst programs lifecycle. 
-It takes in input file(s) and produces a list of "Tokens" which are fed into the next step, the Lexical Analyser.
+It takes in input file(s) and produces a list of "Tokens" which are fed into the next step, the Lexical Analyzer.
 
 In order to build the list of tokens, we'll iterate over each character in the provided input file.
 Each character found within the file will then be evaluated to determine whether or not it is valid.
@@ -13,15 +13,25 @@ If a character is not considered valid, the tokenizer will exit. Otherwise, if a
 
 #### Validation of characters
 
-In order for a character to be considered valid, it must be mappable to one or more of the following single-token-types.
+In order for a character to be considered valid, it must be mappable to one or more of the following single-token-types:
 
 Note: in the following table, possible values for each single-token-type are expressed in the form of a regular expression pattern.
 
-* Character - `/[A-Za-z]/`
+* Letter - `/[A-Za-z]/`
 * Number - `/[\d]+/`
-* String - `/[\"|\']{1}([\w]+)[\"|\']{1}/`
+* String - `/(\"|\'){1}[\s\S]*(\"|\'){1}/`
+* Other (`$`, `_`) - `/($|_)/`
+* Semicolon and EOL (End Of Line) - `/;/` - I doubt we need this, it may be handled elsewhere or just used to deliminate software execution.
+* Equality Operators (`>`, `<`, `==`, `!=`, `<=`, `>=`) - `/(!=|==|>=|<=|>|<)/`
+* Logical Operators (`&`, `|`, `!`) - `/(&&|\|\||!)/`
+* Mathematical Operators (`+`, `-`, `*`, `/`, `%`) - `/(\+|\-|(?![0-9])\s*\*\s*(?=[0-9])|\/|%)/`
+* Bitwise Operators (`&`, `|`, `^`, `~`) - `/(?!([0-9]+\s*))(&|\||\^|~)(?=\s*[0-9]+)/`
+* Pointers & References (`*`, `&`) - `/((?=(\s*))\*(?=(\s*[A-Za-z$_]))|&(?=(\s*[A-Za-z$_])))/`
+* Blocks (`{`, `}`, `(`, `)`) - `/({|\(){1}[\s\S]*(}|\)){1}/` - I don't think we need this to be interpreted as a token, but I'm still unsure.
 
 If a character cannot be mapped to at least one of the previously documented single-token-types, it is considered to be an invalid character.
+
+Note: These are the same characters used in the GCC Tokenizer. This is to keep on par with C and the characters possible through it.
 
 ### Sample output
 
@@ -56,8 +66,6 @@ Given our sample program, the first step of the lexer might output something lik
 
 ### Lexical Analysis
 
-If a character is considered to be valid, it will then be converted to a single-token.
-A single-token is not much more than a character, with a
 If a character is considered to be valid (see "Validation of characters"), it will then be converted to a single-token.
 A single-token, is not much more than a character, with an attribute to describe its single-token-type.
 If a single-token for the 'a' character, was to be expressed using the JSON format, it might look somewhat like follows:
