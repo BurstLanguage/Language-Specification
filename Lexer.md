@@ -20,6 +20,7 @@ Note: in the following table, possible values for each single-token-type are exp
 * Letter - `/[A-Za-z]/`
 * Number - `/[\d]+/`
 * String - `/(\"|\'){1}[\s\S]*(\"|\'){1}/`
+* Other (`$`, `_`) - `/($|_)/`
 * Semicolon and EOL (End Of Line) - `/;/` - I doubt we need this, it may be handled elsewhere or just used to deliminate software execution.
 * Equality Operators (`>`, `<`, `==`, `!=`, `<=`, `>=`) - `/(!=|==|>=|<=|>|<)/`
 * Logical Operators (`&`, `|`, `!`) - `/(&&|\|\||!)/`
