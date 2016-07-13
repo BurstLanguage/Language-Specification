@@ -4,7 +4,7 @@
 ### Tokenization
 
 Tokenization is the first step of a Burst programs lifecycle. 
-It takes in input file(s) and produces a list of "Tokens" which are fed into the next step, the Lexical Analyser.
+It takes in input file(s) and produces a list of "Tokens" which are fed into the next step, the Lexical Analyzer.
 
 In order to build the list of tokens, we'll iterate over each character in the provided input file.
 Each character found within the file will then be evaluated to determine whether or not it is valid.
@@ -13,15 +13,21 @@ If a character is not considered valid, the tokenizer will exit. Otherwise, if a
 
 #### Validation of characters
 
-In order for a character to be considered valid, it must be mappable to one or more of the following single-token-types.
+In order for a character to be considered valid, it must be mappable to one or more of the following single-token-types:
 
 Note: in the following table, possible values for each single-token-type are expressed in the form of a regular expression pattern.
 
-* Character - `/[A-Za-z]/`
+* Letter - `/[A-Za-z]/`
 * Number - `/[\d]+/`
 * String - `/[\"|\']{1}([\w]+)[\"|\']{1}/`
+* Equality Operators (`>`, `<`, `==`, `!=`, `<=`, `>=`) - `/(!=|==|>=|<=|>|<)/`
+* Logical Operators (`&`, `|`, `!`) - `/(&&|\|\||!)/`
+* Mathematical Operators (`+`, `-`, `*`, `/`, `(`, `)`, `^`, `%`) - 
+* Other (`&`, `{`, `}`, `;`, `_`, `$`) - 
 
 If a character cannot be mapped to at least one of the previously documented single-token-types, it is considered to be an invalid character.
+
+Note: These are the same characters used in the GCC Tokenizer. This is to keep on par with C and the possible characters allowed through it.
 
 ### Sample output
 
