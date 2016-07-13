@@ -1,6 +1,8 @@
 # Burst
 ## Language Specification
 
+[![Join the chat at https://gitter.im/BurstLanguage/Language-Specification](https://badges.gitter.im/BurstLanguage/Language-Specification.svg)](https://gitter.im/BurstLanguage/Language-Specification?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Contents
  - [Introduction](#introduction)
  - [Lifecycle of a Burst program](#lifecycle-of-a-burst-program)
