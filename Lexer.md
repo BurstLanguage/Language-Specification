@@ -93,6 +93,12 @@ Once a "combining session" has stopped, the combined-token that was built, will 
 
 A list of combined-token-types, as well as their possible values, can be found below:
 
-* Keyword:
-    * int
-    * void
+ * Keyword:
+    * `int`
+    * `void`
+ * Operator:
+    * `+`
+    * `-`
+    * `*`
+    * `/`
+    * `=`
