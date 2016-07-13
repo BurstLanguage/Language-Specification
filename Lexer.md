@@ -20,11 +20,13 @@ Note: in the following table, possible values for each single-token-type are exp
 * Letter - `/[A-Za-z]/`
 * Number - `/[\d]+/`
 * String - `/(\"|\'){1}[\s\S]*(\"|\'){1}/`
+* Semicolon and EOL (End Of Line) - `/;/` - I doubt we need this, it may be handled elsewhere or just used to deliminate software execution.
 * Equality Operators (`>`, `<`, `==`, `!=`, `<=`, `>=`) - `/(!=|==|>=|<=|>|<)/`
 * Logical Operators (`&`, `|`, `!`) - `/(&&|\|\||!)/`
-* Mathematical Operators (`+`, `-`, `*`, `/`, `^`, `%`) - `/(\+|\-|(?![0-9])\s*\*\s*(?=[0-9])|\/|\^|%)/`
+* Mathematical Operators (`+`, `-`, `*`, `/`, `%`) - `/(\+|\-|(?![0-9])\s*\*\s*(?=[0-9])|\/|%)/`
+* Bitwise Operators (`&`, `|`, `^`, `~`) - `/(?!([0-9]+\s*))(&|\||\^|~)(?=\s*[0-9]+)/`
 * Pointers & References (`*`, `&`) - `/((?=(\s*))\*(?=(\s*[A-Za-z$_]))|&(?=(\s*[A-Za-z$_])))/`
-* Blocks (`{`, `}`, `(`, `)`) - `/({|\(){1}[\s\S]*(}|\)){1}/`
+* Blocks (`{`, `}`, `(`, `)`) - `/({|\(){1}[\s\S]*(}|\)){1}/` - I don't think we need this to be interpreted as a token, but I'm still unsure.
 
 If a character cannot be mapped to at least one of the previously documented single-token-types, it is considered to be an invalid character.
 
@@ -63,8 +65,6 @@ Given our sample program, the first step of the lexer might output something lik
 
 ### Lexical Analysis
 
-If a character is considered to be valid, it will then be converted to a single-token.
-A single-token is not much more than a character, with a
 If a character is considered to be valid (see "Validation of characters"), it will then be converted to a single-token.
 A single-token, is not much more than a character, with an attribute to describe its single-token-type.
 If a single-token for the 'a' character, was to be expressed using the JSON format, it might look somewhat like follows:
