@@ -27,7 +27,7 @@ Note: in the following table, possible values for each single-token-type are exp
 * Mathematical Operators (`+`, `-`, `*`, `/`, `%`) - `/(\+|\-|(?![0-9])\s*\*\s*(?=[0-9])|\/|%)/`
 * Bitwise Operators (`&`, `|`, `^`, `~`) - `/(?!([0-9]+\s*))(&|\||\^|~)(?=\s*[0-9]+)/`
 * Pointers & References (`*`, `&`) - `/((?=(\s*))\*(?=(\s*[A-Za-z$_]))|&(?=(\s*[A-Za-z$_])))/`
-* Blocks (`{`, `}`, `(`, `)`) - `/({|\(){1}[\s\S]*(}|\)){1}/` - I don't think we need this to be interpreted as a token, but I'm still unsure.
+* Blocks (`{`, `}`, `(`, `)`) - `/({|\(){1}[\s\S]*(}|\)){1}/` - I don't think we need this to be interpreted as a token, but I'm still unsure, it may just be too ambiguous.
 
 If a character cannot be mapped to at least one of the previously documented single-token-types, it is considered to be an invalid character.
 
