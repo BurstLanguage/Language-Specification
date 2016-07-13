@@ -122,6 +122,7 @@ A list of combined-token-types, as well as their possible values, can be found b
 
 * Operators:
     * . *(dot)*
+    * -> *(pointer access)*
     * , *(comma)*
     * : *(colon)*
     * ; *(semi-colon)*
