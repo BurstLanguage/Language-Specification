@@ -19,15 +19,16 @@ Note: in the following table, possible values for each single-token-type are exp
 
 * Letter - `/[A-Za-z]/`
 * Number - `/[\d]+/`
-* String - `/[\"|\']{1}([\w]+)[\"|\']{1}/`
+* String - `/(\"|\'){1}[\s\S]*(\"|\'){1}/`
 * Equality Operators (`>`, `<`, `==`, `!=`, `<=`, `>=`) - `/(!=|==|>=|<=|>|<)/`
 * Logical Operators (`&`, `|`, `!`) - `/(&&|\|\||!)/`
-* Mathematical Operators (`+`, `-`, `*`, `/`, `(`, `)`, `^`, `%`) - 
-* Other (`&`, `{`, `}`, `;`, `_`, `$`) - 
+* Mathematical Operators (`+`, `-`, `*`, `/`, `^`, `%`) - `/(\+|\-|(?![0-9])\s*\*\s*(?=[0-9])|\/|\^|%)/`
+* Pointers & References (`*`, `&`) - `/((?=(\s*))\*(?=(\s*[A-Za-z$_]))|&(?=(\s*[A-Za-z$_])))/`
+* Blocks (`{`, `}`, `(`, `)`) - `/({|\(){1}[\s\S]*(}|\)){1}/`
 
 If a character cannot be mapped to at least one of the previously documented single-token-types, it is considered to be an invalid character.
 
-Note: These are the same characters used in the GCC Tokenizer. This is to keep on par with C and the possible characters allowed through it.
+Note: These are the same characters used in the GCC Tokenizer. This is to keep on par with C and the characters possible through it.
 
 ### Sample output
 
