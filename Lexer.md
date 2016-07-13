@@ -95,4 +95,73 @@ A list of combined-token-types, as well as their possible values, can be found b
 
 * Keyword:
     * int
+    * short
+    * byte
+    * char
+    * long
+    * long long
+    * float
+    * double
+    * uint or unsigned int
+    * ushort or unsigned short
+    * ubyte or unsigned byte
+    * uchar or unsigned char
+    * ulong or unsigned long
+    * unsigned long long
     * void
+    * class
+    * struct
+    * union
+    * enum
+    * virtual
+    * public
+    * protected
+    * private
+    * static
+    * inline
+
+* Operators:
+    * . *(dot)*
+    * , *(comma)*
+    * : *(colon)*
+    * ; *(semi-colon)*
+    * type* *(pointer)*
+    * *identifier *(pointer dereference)*
+    * &identifier *(address of)*
+    * sizeof (size of value in bytes)
+    * = *(assignment)*
+    * \+ *(add)*
+    * \- *(subtract)*
+    * \* *(multiply)*
+    * \/ *(divide)*
+    * & *(bitwise and)*
+    * | *(bitwise or)*
+    * ~ *(bitwise not)*
+    * ^ *(bitwise xor)*
+    * \<\< *(left shift)*
+    * \>\> *(right shift)*
+    * \>\>\> *(unsigned right shift)*
+    * \*\* *(power)*
+    * += *(addition assignment)*
+    * -= *(subtraction assignment)*
+    * *= *(multiplication assignment)*
+    * /= *(division assignment)*
+    * &= *(bitwise and assignment)*
+    * |= *(bitwise or assignment)*
+    * ^= *(bitwise xor assignment)*
+    * \<\<= *(left shift assignment)*
+    * \>\>= *(right shift assignment)*
+    * \>\>\>= *(unsigned right shift assignment)*
+    * \*\*= *(power assignment)*
+    * != *(non equality)*
+    * == *(equality)*
+    * \< *(less than)*
+    * \> *(greater than)*
+    * \<= *(less than or equal)*
+    * \>= *(greater than or equal)*
+    * || *(logical or)*
+    * && *(logical and)*
+    * ! *(logical not)*
+    * ?: *(ternary)*
+    * ?. *(null safe dot aka "elvis")*
+    * ?? *(null cohalesing operator)*
