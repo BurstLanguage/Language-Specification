@@ -164,4 +164,4 @@ A list of combined-token-types, as well as their possible values, can be found b
     * ! *(logical not)*
     * ?: *(ternary)*
     * ?. *(null safe dot aka "elvis")*
-    * ?? *(null cohalesing operator)*
+    * ?? *(null coalescing operator)*
